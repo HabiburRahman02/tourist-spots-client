@@ -11,7 +11,7 @@ const Banner = () => {
     return (
         <div>
             <Swiper navigation={true} modules={[Navigation]}
-                className="mySwiper md:h-[600px]"
+                className="mySwiper md:h-[600px] mt-6"
             >
                 <SwiperSlide>
                     <img src={slider1} alt="" />

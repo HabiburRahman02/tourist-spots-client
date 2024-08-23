@@ -10,9 +10,9 @@ const Navbar = () => {
         <li className="text-lg"><Link to='myList'>My List</Link></li>
     </>
     return (
-        <div className="navbar bg-gry7">
+        <div className="navbar ">
             <div className="navbar-start">
-                <div className="dropdown">
+                <div className="dropdown z-10">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

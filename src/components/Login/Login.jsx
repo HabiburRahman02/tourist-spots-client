@@ -1,4 +1,5 @@
 
+import { Link } from 'react-router-dom';
 import loginImg from '../../assets/login/login.jpg'
 const Login = () => {
     return (
@@ -26,7 +27,7 @@ const Login = () => {
                             <input type="password" placeholder="*********" className="border-2 p-4" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Login</button>
+                            <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-5 text-white font-bold">Login</button>
                         </div>
 
                         <div className="divider text-gray-400">Login With</div>
@@ -38,7 +39,9 @@ const Login = () => {
                                 <button className=" bg-green-500 hover:bg-green-600 px-10 py-4 text-white font-bold w-full">Github</button>
                             </div>
                         </div>
-
+                        <div className='mt-3 text-center font-medium text-gray-500 text-lg'>
+                            <p>Are you new? got to! <Link to='/signup' className='text-blue-500 hover:text-green-500'>Sign Up</Link></p>
+                        </div>
                     </form>
                 </div>
 
