@@ -4,6 +4,7 @@ import loginImg from '../../assets/login/login.jpg'
 import { useContext } from 'react';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import SocialLogin from '../shared/SocialLogin/SocialLogin';
 const Login = () => {
     const { loginUser } = useContext(AuthContext);
 
@@ -65,14 +66,7 @@ const Login = () => {
                         </div>
 
                         <div className="divider text-gray-400">Login With</div>
-                        <div className="flex items-center gap-3 justify-center">
-                            <div>
-                                <button className=" bg-emerald-500 hover:bg-emerald-600 px-10 py-4 text-white font-bold w-full">Google</button>
-                            </div>
-                            <div>
-                                <button className=" bg-green-500 hover:bg-green-600 px-10 py-4 text-white font-bold w-full">Github</button>
-                            </div>
-                        </div>
+                        <SocialLogin></SocialLogin>
                         <div className='mt-3 text-center font-medium text-gray-500 text-lg'>
                             <p>Are you new? got to! <Link to='/signup' className='text-blue-500 hover:text-green-500'>Sign Up</Link></p>
                         </div>

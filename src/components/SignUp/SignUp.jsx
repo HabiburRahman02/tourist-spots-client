@@ -5,6 +5,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import SocialLogin from '../shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
     const [showPass, setShowPass] = useState(false);
@@ -111,14 +112,7 @@ const SignUp = () => {
                         </div>
 
                         <div className="divider text-gray-400">Or Login With</div>
-                        <div className="flex items-center gap-3 justify-center">
-                            <div>
-                                <button className=" bg-emerald-500 hover:bg-emerald-600 px-10 py-4 text-white font-bold">Google</button>
-                            </div>
-                            <div>
-                                <button className=" bg-green-500 hover:bg-green-600 px-10 py-4 text-white font-bold">Github</button>
-                            </div>
-                        </div>
+                        <SocialLogin></SocialLogin>
 
                         <div className='mt-3 text-center font-medium text-gray-500 text-lg'>
                             <p>Already have an account? <Link to='/login' className='text-blue-500 hover:text-green-500'>Login</Link></p>

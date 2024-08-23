@@ -23,6 +23,14 @@ const Navbar = () => {
             })
     }
 
+    const handleImg = () => {
+        {
+            user && <>
+                <span>{user?.email}</span>
+            </>
+        }
+    }
+
     const links = <>
         <li className="text-lg"><Link to='/'>Home</Link></li>
         <li className="text-lg"><Link to='allTourists'>All Tourist Spot</Link></li>
@@ -66,10 +74,16 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user?.email ? <>
-                        <img src={user?.photoURL} alt="" />
-                        <button
-                            onClick={handleSignOut}
-                            className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Sign Out</button>
+                        <div className="flex gap-2 items-center">
+                            <img
+
+                                className="w-14 rounded-full"
+                                src={user?.photoURL} alt=""
+                            />
+                            <button
+                                onClick={handleSignOut}
+                                className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Logout</button>
+                        </div>
                     </>
                         :
                         <Link to='login'>
