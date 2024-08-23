@@ -4,15 +4,15 @@ import logo from '../../../assets/icons/logo.png'
 const Navbar = () => {
 
     const links = <>
-        <li className="text-lg"><Link>Home</Link></li>
-        <li className="text-lg"><Link>All Tourist Spot</Link></li>
-        <li className="text-lg"><Link>Add Tourist Spot</Link></li>
-        <li className="text-lg"><Link>My List</Link></li>
+        <li className="text-lg"><Link to='/'>Home</Link></li>
+        <li className="text-lg"><Link to='allTourists'>All Tourist Spot</Link></li>
+        <li className="text-lg"><Link to='addTourists'>Add Tourist Spot</Link></li>
+        <li className="text-lg"><Link to='myList'>My List</Link></li>
     </>
     return (
-        <div className="navbar bg-gry7">
-            <div className="navbar-start gap-1">
-                <div className="dropdown">
+        <div className="navbar ">
+            <div className="navbar-start">
+                <div className="dropdown z-10">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +44,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Login</button>
+                <Link to='login'>
+                    <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Login</button>
+                </Link>
             </div>
         </div>
     );
