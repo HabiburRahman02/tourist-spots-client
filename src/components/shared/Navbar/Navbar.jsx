@@ -1,7 +1,27 @@
 import { Link } from "react-router-dom";
 import logo from '../../../assets/icons/logo.png'
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire({
+                    title: "Ohh Man!!",
+                    text: "Sign Out successfully",
+                    icon: "success",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            })
+            .catch(error => {
+                console.error(error);
+            })
+    }
 
     const links = <>
         <li className="text-lg"><Link to='/'>Home</Link></li>
@@ -44,9 +64,19 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='login'>
-                    <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Login</button>
-                </Link>
+                {
+                    user?.email ? <>
+                        <img src={user?.photoURL} alt="" />
+                        <button
+                            onClick={handleSignOut}
+                            className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Sign Out</button>
+                    </>
+                        :
+                        <Link to='login'>
+                            <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold">Login</button>
+                        </Link>
+                }
+
             </div>
         </div>
     );
