@@ -12,6 +12,7 @@ import Login from './components/Login/Login';
 import AddTouristsSpot from './components/AddTouristsSpot/AddTouristsSpot';
 import AllTouristsSpots from './components/AllTouristsSpots/AllTouristsSpots';
 import SignUp from './components/SignUp/SignUp';
+import AuthProvider from './provider/AuthProvider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -46,7 +47,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <div className='max-w-7xl mx-auto px-2'>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </div>
   </StrictMode>,
 )
