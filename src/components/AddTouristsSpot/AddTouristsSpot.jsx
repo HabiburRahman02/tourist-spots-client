@@ -113,7 +113,7 @@ const AddTouristsSpot = () => {
                     </div>
                 </div>
                 <div className="gap-9 mb-4">
-                    <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold w-full">Login</button>
+                    <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold w-full">Add Tourist Spot</button>
                 </div>
             </form>
         </div>

@@ -13,10 +13,13 @@ import AddTouristsSpot from './components/AddTouristsSpot/AddTouristsSpot';
 import AllTouristsSpots from './components/AllTouristsSpots/AllTouristsSpots';
 import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './provider/AuthProvider/AuthProvider';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
+    errorElement: <ErrorPage></ErrorPage>,
     element: <Main></Main>,
     children: [
       {
@@ -25,12 +28,15 @@ const router = createBrowserRouter([
       },
       {
         path: '/addTourists',
-        element: <AddTouristsSpot></AddTouristsSpot>,
+        element: <PrivateRoute><AddTouristsSpot></AddTouristsSpot></PrivateRoute>,
       },
       {
         path: '/allTourists',
         element: <AllTouristsSpots></AllTouristsSpots>,
         loader: () => fetch('http://localhost:5000/spots')
+      },
+      {
+        path: '/myList',
       },
       {
         path: '/login',
