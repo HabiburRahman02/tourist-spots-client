@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 
 
 const AddReview = () => {
@@ -15,6 +16,27 @@ const AddReview = () => {
 
         const review = { userName, title, description, date, ratings, location, photoUrl };
         console.log(review);
+
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Good Job Man!!",
+                        text: "Added Review successfully",
+                        icon: "success",
+                        color: 'green',
+                    });
+                    form.reset();
+                }
+            })
     }
     return (
         <div className="max-w-7xl mx-auto p-12 m-4 shadow-2xl min-h-screen">

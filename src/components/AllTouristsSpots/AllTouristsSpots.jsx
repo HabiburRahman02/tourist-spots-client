@@ -18,7 +18,7 @@ const AllTouristsSpots = () => {
                     loop={false}
                     delaySpeed={2500}
                     words={
-                        ['ur All Tourists Spots Here',
+                        ['ur All Tourists Spots Here_',
                         ]}>
 
                 </Typewriter>
