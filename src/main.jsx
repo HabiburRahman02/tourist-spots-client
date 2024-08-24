@@ -15,6 +15,7 @@ import SignUp from './components/SignUp/SignUp';
 import AuthProvider from './provider/AuthProvider/AuthProvider';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
 import ErrorPage from './ErrorPage/ErrorPage';
+import MyList from './components/MyList/MyList';
 
 const router = createBrowserRouter([
   {
@@ -33,10 +34,10 @@ const router = createBrowserRouter([
       {
         path: '/allTourists',
         element: <AllTouristsSpots></AllTouristsSpots>,
-        loader: () => fetch('http://localhost:5000/spots')
       },
       {
         path: '/myList',
+        element: <PrivateRoute><MyList></MyList></PrivateRoute>
       },
       {
         path: '/login',
@@ -52,7 +53,7 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <div className='max-w-7xl mx-auto px-2'>
+    <div className=''>
       <AuthProvider>
         <RouterProvider router={router} />
       </AuthProvider>

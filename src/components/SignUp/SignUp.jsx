@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signupImg from '../../assets/login/signup.jpg'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
@@ -9,9 +9,9 @@ import SocialLogin from '../shared/SocialLogin/SocialLogin';
 
 const SignUp = () => {
     const [showPass, setShowPass] = useState(false);
+    const navigate = useNavigate();
 
-
-    const { createUser } = useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
 
 
     const handleSignUp = e => {
@@ -45,6 +45,7 @@ const SignUp = () => {
         console.log(user)
         createUser(email, password)
             .then(result => {
+                navigate('/')
                 console.log(result.user);
                 Swal.fire({
                     title: "Awesome job man!",
@@ -53,6 +54,14 @@ const SignUp = () => {
                     color: 'green',
                     confirmButtonText: 'Done',
                 });
+                updateUserProfile(name, photoUrl)
+                    .then(() => {
+                        console.log('update profile success')
+
+                    })
+                    .catch(error => {
+                        console.error(error)
+                    })
             })
             .catch(error => {
                 console.error(error)

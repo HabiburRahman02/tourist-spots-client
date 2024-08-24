@@ -23,19 +23,12 @@ const Navbar = () => {
             })
     }
 
-    const handleImg = () => {
-        {
-            user && <>
-                <span>{user?.email}</span>
-            </>
-        }
-    }
 
     const links = <>
-        <li className="text-lg"><Link to='/'>Home</Link></li>
-        <li className="text-lg"><Link to='allTourists'>All Tourist Spot</Link></li>
-        <li className="text-lg"><Link to='addTourists'>Add Tourist Spot</Link></li>
-        <li className="text-lg"><Link to='myList'>My List</Link></li>
+        <li className="text-lg hover:text-blue-500 duration-500 hover:underline"><Link to='/'>Home</Link></li>
+        <li className="text-lg hover:text-blue-500 duration-500 hover:underline"><Link to='allTourists'>All Tourist Spot</Link></li>
+        <li className="text-lg hover:text-blue-500 duration-500 hover:underline"><Link to='addTourists'>Add Tourist Spot</Link></li>
+        <li className="text-lg hover:text-blue-500 duration-500 hover:underline"><Link to='myList'>My List</Link></li>
     </>
     return (
         <div className="navbar ">
@@ -62,8 +55,9 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <Link>
+                <Link className="flex items-center gap-2">
                     <img className="w-14" src={logo} alt="" />
+                    <h3 className='hidden md:block font-semibold text-3xl'>Travel</h3>
                 </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -77,7 +71,7 @@ const Navbar = () => {
                         <div className="flex gap-2 items-center">
                             <img
 
-                                className="w-14 rounded-full"
+                                className="w-14 h-14 object-cover rounded-full"
                                 src={user?.photoURL} alt=""
                             />
                             <button

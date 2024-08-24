@@ -1,12 +1,17 @@
-import { useLoaderData } from "react-router-dom";
 import AllTouristsSpotsCard from "../AllTouristsSpotsCard/AllTouristsSpotsCard";
 import { Typewriter } from 'react-simple-typewriter'
+import { useEffect, useState } from "react";
 
 const AllTouristsSpots = () => {
-    const spots = useLoaderData();
-    console.log(spots)
+    const [spots, setSpots] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:5000/spots')
+            .then(res => res.json())
+            .then(data => setSpots(data))
+    }, [])
+
     return (
-        <div className="mt-6">
+        <div className="max-w-7xl mx-auto mt-6 mb-16">
             <div className="mb-6 text-3xl font-bold text-center">
                 O
                 <Typewriter

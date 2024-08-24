@@ -1,12 +1,15 @@
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/login/login.jpg'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../shared/SocialLogin/SocialLogin';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 const Login = () => {
+    const [showPass, setShowPass] = useState(false);
     const { loginUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleLogin = e => {
         e.preventDefault();
@@ -16,6 +19,7 @@ const Login = () => {
 
         loginUser(email, password)
             .then(result => {
+                navigate('/')
                 console.log(result.user);
                 Swal.fire({
                     title: "Hurray!!!",
@@ -55,11 +59,18 @@ const Login = () => {
                             </label>
                             <input type="email" name='email' placeholder="ami@tmi.com" className="border-2 p-4" required />
                         </div>
-                        <div className="form-control mb-12">
+                        <div className="form-control relative mb-12">
                             <label className="label">
                                 <span className="label-text text-lg text-gray-500">Password</span>
                             </label>
-                            <input type="password" name='password' placeholder="*********" className="border-2 p-4" required />
+                            <input type={showPass ? "text" : "password"} name='password' placeholder="*********" className="border-2 p-4" required />
+                            <span className='absolute top-[60px] right-2'
+                                onClick={() => setShowPass(!showPass)}>
+                                {
+                                    showPass ? <FaEyeSlash className='text-2xl'></FaEyeSlash>
+                                        : <FaEye className='text-2xl'></FaEye>
+                                }
+                            </span>
                         </div>
                         <div className="form-control mt-6">
                             <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-5 text-white font-bold">Login</button>

@@ -1,13 +1,25 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../../../firebase/firebase.config";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const SocialLogin = () => {
+    const navigate = useNavigate();
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleLogin = () => {
         signInWithPopup(auth, googleProvider)
             .then(result => {
+                navigate('/')
                 console.log(result.user)
+                Swal.fire({
+                    title: "Hurray!!!",
+                    text: "Login successfully",
+                    icon: "success",
+                    color: 'green',
+                    showConfirmButton: false,
+                    timer: 2000
+                });
             })
             .catch(error => {
                 console.error(error);
