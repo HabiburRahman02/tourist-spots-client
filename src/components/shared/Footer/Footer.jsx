@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import footerLogo from '../../../assets/icons/logo.png'
-import { FaFacebook, FaGithub, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 const Footer = () => {
     return (
-        <div className=' bg-[#1C1C1C] text-white mt-24 py-24'>
+        <div className=' bg-[#1C1C1C] text-white mt-12 md:mt-24 py-12 md:py-24'>
             <div className='max-w-7xl mx-auto'>
                 <div className='max-w-[800px] mx-auto space-y-10 text-center'>
-                    <Link>
+                    <Link to='/'>
                         <div className='flex items-center gap-2 max-w-[150px] mx-auto'>
                             <img className='h-12 w-12' src={footerLogo} alt="" />
                             <h3 className='font-bold text-3xl'>Travel</h3>

@@ -42,7 +42,7 @@ const Login = () => {
             })
     }
     return (
-        <div className="lg:flex items-center gap-6 p-6 lg:px-24 bg-ray-100 min-h-screen bg-img">
+        <div className="lg:flex max-w-7xl mx-auto items-center gap-6 p-6 lg:px-24 bg-ray-100 min-h-screen bg-img">
             <div className="lg:w-1/2">
                 <img src={loginImg} alt="" />
             </div>
