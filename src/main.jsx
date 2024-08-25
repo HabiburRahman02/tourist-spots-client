@@ -17,6 +17,7 @@ import PrivateRoute from './PrivateRoute/PrivateRoute';
 import ErrorPage from './ErrorPage/ErrorPage';
 import MyList from './components/MyList/MyList';
 import AddReview from './components/AddReview/AddReview';
+import ViewDetails from './components/ViewDetails/ViewDetails';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
       {
         path: '/addReview',
         element: <AddReview></AddReview>
+      },
+      {
+        path: '/viewDetails/:id',
+        element: <ViewDetails></ViewDetails>,
+        // loader: ({ params }) => fetch(`https://tourist-spots-server.vercel.app/spots/${params.id}`)
       },
       {
         path: '/login',

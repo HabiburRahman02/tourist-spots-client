@@ -17,7 +17,7 @@ const AddReview = () => {
         const review = { userName, title, description, date, ratings, location, photoUrl };
         console.log(review);
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://tourist-spots-server.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -41,7 +41,7 @@ const AddReview = () => {
     return (
         <div className="max-w-7xl mx-auto p-12 m-4 shadow-2xl min-h-screen">
             <div className="max-w-2xl mx-auto text-center mb-6">
-                <h2 className="text-3xl font-bold">Add Tourists Spot</h2>
+                <h2 className="text-3xl font-bold">Add Reviews</h2>
                 <p>Tourist spots around the world offer a diverse range of experiences, from natural wonders to historic landmarks. The Eiffel Tower in Paris stands as a symbol of romance and engineering marvel, while the Great Wall of China showcases the grandeur of ancient civilization.</p>
             </div>
             <form onSubmit={handleAddReview}>

@@ -18,7 +18,7 @@ const AddTouristsSpot = () => {
         const spots = { spotName, countryName, location, description, averageCost, seasonality, totalVisitors, travelTime, photoUrl }
         console.log(spots)
 
-        fetch('http://localhost:5000/spots', {
+        fetch('https://tourist-spots-server.vercel.app/spots', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

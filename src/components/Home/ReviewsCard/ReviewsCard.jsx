@@ -2,11 +2,11 @@
 
 import ReactStars from "react-stars";
 
-
 const ReviewsCard = ({ review }) => {
     const { userName, title, description, date, ratings, location, photoUrl } = review;
     return (
         <div className="bg-white shadow-2xl p-12">
+
             <div className="space-y-6">
                 <ReactStars
                     count={ratings}

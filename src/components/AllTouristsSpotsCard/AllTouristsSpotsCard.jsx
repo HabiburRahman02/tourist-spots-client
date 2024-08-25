@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 
 
 const AllTouristsSpotsCard = ({ spot }) => {
-    const { spotName, countryName, location, description, averageCost, seasonality, totalVisitors, travelTime, photoUrl } = spot;
+    const { _id, spotName, countryName, location, description, averageCost, seasonality, totalVisitors, travelTime, photoUrl } = spot;
     return (
         <div className=" shadow-2xl">
             <div>
@@ -23,7 +25,9 @@ const AllTouristsSpotsCard = ({ spot }) => {
                         <p>Travel time: {travelTime}hours</p>
                         <p>Seasonality: {seasonality}</p>
                     </div>
-                    <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold w-full">View Details</button>
+                    <Link tp={`viewDetails/${_id}`}>
+                        <button className=" bg-gradient-to-r from-cyan-500 to-blue-500 px-8 py-4 text-white font-bold w-full">View Details</button>
+                    </Link>
                 </div>
             </div>
         </div>
