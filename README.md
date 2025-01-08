@@ -1,3 +1,5 @@
+![Tourist Spots Website](https://i.ibb.co/RBxp95v/tourist.jpg)
+
 ## Project name
 - Tourist spots
 
